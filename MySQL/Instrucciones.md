@@ -62,7 +62,9 @@ Query OK, 1 row affected (0.06 sec)
 
 En este caso se muestran dos ya que el ejercicio fue realizado una primera vez 
 
-5. Seleccionar una base de datos de la creada anteriormente empleando los siguientes comandos 
+5. Seleccionar una base de datos de la creada anteriormente empleando los siguientes comandos `use codigoIoT_1`
+
+
   - mysql> show databases; 
 Este debe mostrar un mensaje como el siguiente: Database changed
 
@@ -85,6 +87,22 @@ Empty set (0.01 sec)"
 
 Para mostrar el contenido de dicha tabla se usa el comando `describe clima`
 donde muestra la estructura de la misma 
+
+Es necesario previo a trajar con clima por API- base de datos respaldar los nodos descargandolo en formato JSON el archivo creado se debe almacenar el github creando una nueva carpeta en la misma 
+
+7. Agregar nodos MySQL
+  - Para realizarlo hay que dirigirse al simbolo de hamburgesa y selecccionar manage pallet de ahi buscar en la pestaña install la paqueteria de nodos node-red-node-mysql eligiendo la más actual y de versión más reciente 
+  - Una vez agregada la paqueteria se busca el nodo mysql y se agrega al flow clima por API anexando un node de nota con el nombre base de datos para una nueva sección 
+
+  8. Para modificar los parámetros se da doble click sobre el nodo y se debe anexar un usuario y un password 
+
+
+  Para ello se emplea el siguiente código 
+
+
+  - `CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';`
+
+  - `CREATE USER 'Sesenes'@'localhost' IDENTIFIED BY 'dilomi2508';`
 
 
 
