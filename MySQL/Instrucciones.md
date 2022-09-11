@@ -104,7 +104,7 @@ Es necesario previo a trajar con clima por API- base de datos respaldar los nodo
 
   - `CREATE USER 'Sesenes'@'localhost' IDENTIFIED BY 'dilomi2508';`
 
-
+9. 
 
 
 
