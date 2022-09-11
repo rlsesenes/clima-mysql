@@ -104,7 +104,14 @@ Es necesario previo a trajar con clima por API- base de datos respaldar los nodo
 
   - `CREATE USER 'Sesenes'@'localhost' IDENTIFIED BY 'dilomi2508';`
 
-9. 
+9. Agregar un nodo de función en el cual es necesario colocar la siguiente instrucción en message 
+
+msg.topic = "INSERT INTO clima ('nombre', 'temperatura', 'humedad') VALUES ('Sesenes',"+global.get ("tempAPI")+", "+global.get("humAPI")+"); ";
+return msg;
+
+Observese que el contedio a almacenar en msd.topic debe ser de tipo string por ello se coloca entre paréntesis, es neceario ademas contar con las variables globales creadas en previos ejercicios que son tempAPI y humAPI 
+
+
 
 
 
