@@ -106,10 +106,34 @@ Es necesario previo a trajar con clima por API- base de datos respaldar los nodo
 
 9. Agregar un nodo de función en el cual es necesario colocar la siguiente instrucción en message 
 
-msg.topic = "INSERT INTO clima ('nombre', 'temperatura', 'humedad') VALUES ('Sesenes',"+global.get ("tempAPI")+", "+global.get("humAPI")+"); ";
-return msg;
+`msg.topic = "INSERT INTO clima (`nombre`,`temperatura`,`humedad`) VALUES ('Sesenes',"+ global.get("tempAPI") +"," +global.get("humAPI") +");";
+return msg;`
+
+
+
+#Nota 
+
+
+
 
 Observese que el contedio a almacenar en msd.topic debe ser de tipo string por ello se coloca entre paréntesis, es neceario ademas contar con las variables globales creadas en previos ejercicios que son tempAPI y humAPI 
+
+10. Una vez configurado el nodo de función y mysql se requere agregar un nodo inject y dar en deployd. Sin embargo al hacerlo marcará un error debido a que es necesario dar privilegios al usuario creado 
+
+Se debe emplear el siguiente codigo: 
+
+`GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';`
+
+modificado debe de quedar como se muestra a continuación: 
+
+`GRANT ALL PRIVILEGES ON * . * TO 'Sesenes'@'localhost';`
+
+
+se pueden observar las modificaciones a la tabla clima con el código: 
+
+
+ `SELECT *FROM clima;` 
+
 
 
 
