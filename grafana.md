@@ -45,10 +45,59 @@ del menu seleccionar MySQl
 
         - Guardar los cambios 
 
+
+
 Nota Al momento de guardar se debe de probar  que no marque ningun error normalmente depende de un usuario o password erroneo 
 
+comprobar el funcionamiento del flow desactivar flo5 dando doble click en e y desactivandolo 
 
 
+Generar graficas
+
+Comprobar que la base de datos tenga información 
+ir a la terminal y activar la base de datos codigoIoT con `use codigoIoT_1`
+comprobar graficas en grafana localhost:3000
+verificar con SELECT *FROM clima; para observar los datos contenidos 
+
+-Agregar nuevo tablero 
+-Agregar nuevo panel 
+- configurar panel 
+
+En la configuración de panel se requiere cambiar los campos de 
+
+FROM : colocar la tabla clima
+Time column: colocar fecha 
+Metric column: colocar nombre para que despligue el usuario en el gráfico 
+SELECT: en Column ID da clic en ID y coloca el dato a mostrar sea temperatura u humedad. Para agregar dos graficos dar en el icono + y  configurar 
+
+Where: es necesario remover la información que contenga. 
+
+Modificación en Node RED para ver informacion de grupo 
+
+Modificar el flo clima por API antes es necesario guardar el código
+
+Modificar el nodo function  denominado Query agregando la siguiente instrucción:
+
+`msg.topic = "INSERT INTO clima (`nombre`,`temperatura`,`humedad`) VALUES ('"+ msg.payload.id +"',"+ msg.payload.temp +"," + msg.payload.hum +");";
+return msg;`
+
+
+Posterior a ello eliminar el nodo previo y conectar el nodo query a el JSON conectado al nodo de mqtt in
+
+
+Regresar a la pagina de grafana y agregar nuevos paneles para mostrar el grafico de humedad y temperatura de los usuarios conectados. 
+
+
+# Insertar panel grafana en node-red
+
+
+1.En el menú del gráfico desplegar la pestaña y seleccionar share para posteriormente ir a la pestaña embebed y copiar el codigo correspondiente 
+2. Anexar un  nodo template agregando en el espacio embebed el código copiado del gráfico correspondiente y dar debug. Es importatnte asignarle un grupo en este caso el que corresponde a clima por API 
+3. Modificar el archivo grafana.ini empleando el código `sudo nano grafana.ini` el cual debe abrirse desde termina en etc/grafanan
+4. Una vez abierto modificar en la sección security el comando  comentado ;allow_embedding = false cambiandolo por `allow_embedding = true` eliminando las comillas 
+4. Se procede a reiniciar grafana con el codigo `sudo/bin/systemctl restart grafana-server`
+5. Dar refresh en localhost de grafana y observar la pantalla de node-red donde ya apareceran los gráficos historicos. 
+6. Agregar un nuevo panel para el usuario específico en este caso "Sesenes" con un grafico donde se selecciona todo y se modifica ademas  
 
 
 
