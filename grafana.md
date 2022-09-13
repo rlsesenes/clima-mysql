@@ -91,7 +91,7 @@ Regresar a la pagina de grafana y agregar nuevos paneles para mostrar el grafico
 # Insertar panel grafana en node-red
 
 
-1.En el menú del gráfico desplegar la pestaña y seleccionar share para posteriormente ir a la pestaña embebed y copiar el codigo correspondiente 
+1. En el menú del gráfico desplegar la pestaña y seleccionar share para posteriormente ir a la pestaña embebed y copiar el codigo correspondiente 
 2. Anexar un  nodo template agregando en el espacio embebed el código copiado del gráfico correspondiente y dar debug. Es importatnte asignarle un grupo en este caso el que corresponde a clima por API 
 3. Modificar el archivo grafana.ini empleando el código `sudo nano grafana.ini` el cual debe abrirse desde termina en etc/grafanan
 4. Una vez abierto modificar en la sección security el comando  comentado ;allow_embedding = false cambiandolo por `allow_embedding = true` eliminando las comillas 
