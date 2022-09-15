@@ -1,1 +1,23 @@
+# Indicadores Gauge en Grafa
+
+1. Comprobar el funcionamiento de grafana 
+2. Comprobar el funcionamiento por API 
+3. Insertar un nuevo panel desde grafana web 
+4. Obtener los datos de temperatura y humedad personales 
+5. Para ello es necesario hacer configuraciones en los siguientes iconos: 
+
+
+- FROM   clima Time column fecha Metric column nombre
+- SELECT  Column: humedad
+- WHERE Expr: nombre = "Sesenes"
+
+
+6. Cambiar el tipo de gráfico a gauge y guardar los cambios realizados 
+7. Una ves guardardados es importante guardar el dashboard para que se apliquen los cambios. 
+7. Ir a node red y configurar nuevos nodos de tipo template 
+
+- Para ello es necesario incluir el codigo embebed generado en los gráficos previamente guardados y configurados en grafana y además configurar el grupo donde se incluirann
+8. refresh en host `http://localhost:1880/ui/#!/3?socketid=5lI_3938td819qQxAAAJ`y listo 
+
+
 
